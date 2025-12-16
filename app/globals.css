@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/* Dark mode için Tailwind v4 custom-variant (shadcn yaklaşımı) */
+@custom-variant dark (&:is(.dark *));
+
+/* =========================
+   PALET (Sadece senin renklerin)
+   #A7D3E0  (soft)
+   #4FB8C8  (accent)
+   #B9E8EB  (secondary)
+   #F7FFFF  (background light)
+   #2C3E50  (foreground dark)
+   ========================= */
+
+:root {
+  --radius: 16px;
+
+  --background: #f7ffff;
+  --foreground: #2c3e50;
+
+  --card: #f7ffff;
+  --card-foreground: #2c3e50;
+
+  --popover: #f7ffff;
+  --popover-foreground: #2c3e50;
+
+  --primary: #4fb8c8;
+  --primary-foreground: #2c3e50;
+
+  --secondary: #b9e8eb;
+  --secondary-foreground: #2c3e50;
+
+  --muted: #a7d3e0;
+  --muted-foreground: #2c3e50;
+
+  --accent: #a7d3e0;
+  --accent-foreground: #2c3e50;
+
+  --destructive: #2c3e50;
+  --destructive-foreground: #f7ffff;
+
+  --border: #b9e8eb;
+  --input: #b9e8eb;
+  --ring: #4fb8c8;
+
+  /* Case status renkleri (palette içinden) */
+  --info: #b9e8eb;
+  --info-foreground: #2c3e50;
+
+  --warn: #a7d3e0;
+  --warn-foreground: #2c3e50;
+
+  --danger: #4fb8c8;
+  --danger-foreground: #2c3e50;
+
+  /* Slot durum renkleri */
+  --slot-booked: #ef4444;
+  --slot-booked-foreground: #ffffff;
+
+  --slot-empty: #10b981;
+  --slot-empty-foreground: #ffffff;
+
+  --slot-locked: #f59e0b;
+  --slot-locked-foreground: #ffffff;
+}
+
+.dark {
+  --background: #2c3e50;
+  --foreground: #f7ffff;
+
+  --card: color-mix(in oklab, #2c3e50 88%, #4fb8c8 12%);
+  --card-foreground: #f7ffff;
+
+  --popover: color-mix(in oklab, #2c3e50 86%, #4fb8c8 14%);
+  --popover-foreground: #f7ffff;
+
+  --primary: #4fb8c8;
+  --primary-foreground: #2c3e50;
+
+  --secondary: color-mix(in oklab, #2c3e50 82%, #a7d3e0 18%);
+  --secondary-foreground: #f7ffff;
+
+  --muted: color-mix(in oklab, #2c3e50 85%, #4fb8c8 15%);
+  --muted-foreground: #b9e8eb;
+
+  --accent: color-mix(in oklab, #2c3e50 80%, #a7d3e0 20%);
+  --accent-foreground: #f7ffff;
+
+  --destructive: #4fb8c8;
+  --destructive-foreground: #2c3e50;
+
+  --border: color-mix(in oklab, #2c3e50 65%, #4fb8c8 35%);
+  --input: color-mix(in oklab, #2c3e50 70%, #4fb8c8 30%);
+  --ring: #4fb8c8;
+
+  --info: color-mix(in oklab, #2c3e50 70%, #b9e8eb 30%);
+  --info-foreground: #f7ffff;
+
+  --warn: color-mix(in oklab, #2c3e50 72%, #a7d3e0 28%);
+  --warn-foreground: #f7ffff;
+
+  --danger: #4fb8c8;
+  --danger-foreground: #2c3e50;
+
+  /* Dark mode slot renkleri */
+  --slot-booked: #dc2626;
+  --slot-booked-foreground: #ffffff;
+
+  --slot-empty: #059669;
+  --slot-empty-foreground: #ffffff;
+
+  --slot-locked: #d97706;
+  --slot-locked-foreground: #ffffff;
+}
+
+/* Shadcn token mapping */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius: var(--radius);
+
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  --color-warn: var(--warn);
+  --color-warn-foreground: var(--warn-foreground);
+
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+
+  --color-slot-booked: var(--slot-booked);
+  --color-slot-booked-foreground: var(--slot-booked-foreground);
+
+  --color-slot-empty: var(--slot-empty);
+  --color-slot-empty-foreground: var(--slot-empty-foreground);
+
+  --color-slot-locked: var(--slot-locked);
+  --color-slot-locked-foreground: var(--slot-locked-foreground);
+}
+
+/* Breakpoints: 320 / 480 / 768 / 1024 / 1280 */
+@theme {
+  --breakpoint-xs: 20rem;
+  --breakpoint-sm: 30rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: initial;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Accessibility: Screen reader only */
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .not-sr-only {
+    @apply static w-auto h-auto p-0 m-0 overflow-visible whitespace-normal;
+  }
+}
+
+/* Focus management */
+@layer utilities {
+  .focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  .dark .focus-visible {
+    @apply ring-offset-background;
+  }
+}
+
